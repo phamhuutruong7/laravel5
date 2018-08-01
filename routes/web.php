@@ -18,3 +18,11 @@ Route::get('/', function () {
 Route::get('test', function () {
     return 'Hello World';
 });
+
+Route::get('KhoaHoc', function () {
+    return "Xin chào các bạn";
+});
+
+Route::get('KhoaPham/Laravel', function(){
+	echo "<h1>Khoa Hoc - Laravel</h1>";
+});
