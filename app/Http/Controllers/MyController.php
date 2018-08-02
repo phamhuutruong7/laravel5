@@ -10,4 +10,10 @@ class MyController extends Controller
     {
     	echo "Chao Cac Ban. Toi la MyController";
     }
+
+    public function KhoaHoc($ten)
+    {
+    	echo "Khoa hoc:".$ten;
+    	return redirect()->route('MyRoute');
+    }
 }

@@ -71,3 +71,5 @@ Route::group(['prefix'=>'MyGroup'], function(){
 
 //Call MyController.php
 Route::get('CallController','MyController@XinChao');
+
+Route::get('ThamSo/{ten}', 'MyController@KhoaHoc');
