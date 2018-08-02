@@ -26,3 +26,13 @@ Route::get('KhoaHoc', function () {
 Route::get('KhoaPham/Laravel', function(){
 	echo "<h1>Khoa Hoc - Laravel</h1>";
 });
+
+//Parameter reference
+Route::get('HoTen/{ten}', function($ten){
+	echo "Ten cua ban la: ".$ten;
+});
+
+Route::get('Laravel/{ngay}', function($ngay){
+	echo "Khoa Pham: ".$ngay;
+
+})-> where(['ngay' =>'[a-zA-Z]+']);
