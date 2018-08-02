@@ -68,3 +68,6 @@ Route::group(['prefix'=>'MyGroup'], function(){
 		echo "User3";
 	});
 });
+
+//Call MyController.php
+Route::get('CallController','MyController@XinChao');
