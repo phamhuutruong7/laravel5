@@ -54,5 +54,23 @@ class MyController extends Controller
 		echo "Cookie cua ban la: ";
 		return $request->cookie('KhoaHoc');
 	}
+
+	//Upload File
+	public function postFile(Request $request)
+	{
+		if($request->has('myFile'))
+		{
+			//This hasFile() point to 'myFile' in postFile.blade.php. In that Tag
+			//This hasFile() function is to check if file exist or not
+			//To save the file we need these functions
+			$file = $request->file('myFile');
+			$file->move('img','myfile.jpg');
+			
+		}
+		else
+		{
+			echo "Chua co file";
+		}
+	}
 }
  
