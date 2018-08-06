@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class MyController extends Controller
 {
@@ -36,5 +37,22 @@ class MyController extends Controller
     	echo "Ten cua ban la : ";
     	echo $request->input('HoTen');
     }
+
+    //Set Cookie
+    public function setCookie()
+	{
+		$response = new Response();
+		$response->withCookie('KhoaHoc', 'Laravel - KhoaPham', 0.1); 
+		//For withCookie() we need 3 parameters. withCookie('nameOfCookie', 'valueOfCookie', 'durationOfTheCookie') 
+		echo "Da set Cookie";
+		return $response;
+	}
+
+	//Get Cookie
+	public function getCookie(Request $request)
+	{
+		echo "Cookie cua ban la: ";
+		return $request->cookie('KhoaHoc');
+	}
 }
  
