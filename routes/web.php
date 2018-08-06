@@ -76,3 +76,10 @@ Route::get('ThamSo/{ten}', 'MyController@KhoaHoc');
 
 //Work with URL
 Route::get('MyRequest','MyController@GetURL');
+
+//Send and receive request
+Route::get('getForm', function(){
+	return view('postForm');
+});
+
+Route::post('postForm', ['as' => 'postForm', 'uses' => 'MyController@postForm']);

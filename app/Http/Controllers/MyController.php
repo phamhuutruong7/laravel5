@@ -31,4 +31,10 @@ class MyController extends Controller
     	else
     		echo "Khong co My";
     }
+    public function postForm(Request $request)
+    {	
+    	echo "Ten cua ban la : ";
+    	echo $request->input('HoTen');
+    }
 }
+ 
