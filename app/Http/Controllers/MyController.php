@@ -64,10 +64,16 @@ class MyController extends Controller
 			//This hasFile() function is to check if file exist or not
 			//To save the file we need these functions
 			$file = $request->file('myFile');
-			$fileName = $file->getClientOriginalName('myFile');
-			echo $fileName;
-			$file->move('img',$fileName);
-			
+			if($file->getClientOriginalExtension('myFile') == "JPG")
+			{	
+				$filename = $file->getClientOriginalName('myFile');
+				$file->move('img',$filename);
+				echo "Da luu file :".$filename;
+			}
+			else
+			{
+				echo "Khong duoc phep upload file";
+			}
 		}
 		else
 		{
