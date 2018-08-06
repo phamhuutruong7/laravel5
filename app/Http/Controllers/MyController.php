@@ -80,5 +80,12 @@ class MyController extends Controller
 			echo "Chua co file";
 		}
 	}
+
+	//Get JSON
+	public function getJson()
+	{
+		$array = ['Laravel', 'PHP', 'ASP.NET', 'HTML'];
+		return response()->json($array);
+	}
 }
  
