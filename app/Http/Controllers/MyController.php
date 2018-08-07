@@ -84,8 +84,17 @@ class MyController extends Controller
 	//Get JSON
 	public function getJson()
 	{
-		$array = ['Laravel', 'PHP', 'ASP.NET', 'HTML'];
+		$array = ['KhoaHoc'=>'Laravel-KhoaPham'];
 		return response()->json($array);
 	}
+
+	//View
+	public function myView()
+	{
+		return view('view.KhoaPham');
+	}
+
+
+
 }
  

@@ -98,3 +98,6 @@ Route::get('uploadFile',function(){
 //JSON
 Route::get('getJson','MyController@getJson');
 
+//View 
+Route::get('myView','MyController@myView');
+
