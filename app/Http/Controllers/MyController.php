@@ -106,10 +106,11 @@ class MyController extends Controller
 	//Blade function
 	public function blade($str)
 	{
+		$khoahoc = "<b>Laravel - Khoa Pham</b>";
 		if($str == "laravel")
-			return view('pages.laravel');
+			return view('pages.laravel',['khoahoc'=>$khoahoc]);
 		elseif($str == "php")
-			return view('pages.php');
+			return view('pages.php',['khoahoc'=>$khoahoc]);
 	}
 
 }
