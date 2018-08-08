@@ -106,3 +106,7 @@ Route::get('Time/{t}','MyController@Time');
 
 View::share('KhoaHoc','Laravel');
 
+//Blade Templates
+Route::get('blade',function(){
+	return view('pages.php');
+});
