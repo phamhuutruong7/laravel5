@@ -108,5 +108,7 @@ View::share('KhoaHoc','Laravel');
 
 //Blade Templates
 Route::get('blade',function(){
-	return view('pages.php');
+	return view('pages.laravel');
 });
+
+Route::get('BladeTemplate/{str}','MyController@blade');

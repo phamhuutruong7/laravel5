@@ -103,5 +103,14 @@ class MyController extends Controller
 		//But we also need to change it in myView.php from '$t' to '$time'
 	}
 
+	//Blade function
+	public function blade($str)
+	{
+		if($str == "laravel")
+			return view('pages.laravel');
+		elseif($str == "php")
+			return view('pages.php');
+	}
+
 }
  
