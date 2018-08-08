@@ -101,3 +101,8 @@ Route::get('getJson','MyController@getJson');
 //View 
 Route::get('myView','MyController@myView');
 
+//Pass the data throught view
+Route::get('Time/{t}','MyController@Time');
+
+View::share('KhoaHoc','Laravel');
+

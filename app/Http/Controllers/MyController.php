@@ -94,7 +94,14 @@ class MyController extends Controller
 		return view('view.KhoaPham');
 	}
 
-
+	//
+	public function Time($t)
+	{
+		return view('myView',['t'=>$t]);
+		//This 't' point from View to the parameter in this function
+		//we may change this 't' here to the other variables like 'time'.
+		//But we also need to change it in myView.php from '$t' to '$time'
+	}
 
 }
  
