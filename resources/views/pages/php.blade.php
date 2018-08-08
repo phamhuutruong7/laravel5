@@ -1,8 +1,26 @@
 @extends('layouts.master')
 
 @section('NoiDung')
-	<h2>PHP</h2>
-	{{$khoahoc}}
-	{!!$khoahoc!!}
-	{{-- The first way to print the data with double {} cant print the HTML code. But with the second way, we can print it with HTML code (like <b>, <h1>)--}}
+
+{{--This is the lesson about condition statement--}}
+
+{{--If-Else Condition--}}
+{{--@if($khoahoc != "")
+{{$khoahoc}}
+@else
+{{"Khong co khoa hoc"}}
+@endif
+--}}
+{{--For-Loop--}}
+{{$khoahoc or "Khong co khoa hoc"}}
+{{--This is another way to print like the If Else Condition--}}
+<br>
+@for($i = 1; $i<=10; $i++)
+	{{$i.""}}
+@endfor
+
+
+
+
+
 @endsection
