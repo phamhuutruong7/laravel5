@@ -189,3 +189,9 @@ Route::get('taobang',function(){
 	});
 	echo "Da tao bang";
 });
+
+//Query Builder
+Route::get('qb/get', function(){
+	$data = DB::table('users')->get();
+	var_dump($data);
+});
