@@ -2,25 +2,40 @@
 
 @section('NoiDung')
 
-{{--This is the lesson about condition statement--}}
+<?php $khoahoc = array('Laravel', 'PHP', 'iOS', 'ASP', 'Android');?>
 
-{{--If-Else Condition--}}
-{{--@if($khoahoc != "")
-{{$khoahoc}}
+{{--For each condition--}}
+@if(!empty($khoahoc))
+	@foreach($khoahoc as $value)
+		{{$value}}
+	@endforeach
+
 @else
-{{"Khong co khoa hoc"}}
+{{"Mang rong"}}
 @endif
---}}
-{{--For-Loop--}}
-{{$khoahoc or "Khong co khoa hoc"}}
-{{--This is another way to print like the If Else Condition--}}
 <br>
-@for($i = 1; $i<=10; $i++)
-	{{$i.""}}
-@endfor
+{{--For else condition--}}
+@forelse($khoahoc as $value)
+	{{$value}}
+@empty
+	{{"Mang rong"}}
+@endforelse
 
-
-
-
+<br>
+{{--Continue--}}
+@forelse($khoahoc as $value)
+	@continue($value == "Laravel")
+	{{$value}}
+@empty
+	{{"Mang rong"}}
+@endforelse
+<br>
+{{--Break--}}
+@forelse($khoahoc as $value)
+	@break($value == "PHP")
+	{{$value}}
+@empty
+	{{"Mang rong"}}
+@endforelse
 
 @endsection
