@@ -271,3 +271,21 @@ Route::get('qb/limit',function(){
 		echo "<hr>";
 	}
 });
+
+//Update where id = 1
+Route::get('qb/update',function(){
+	DB::table('users')->where('id',1)->update(['name'=>'index','email'=>'something@gmail.com' ]);
+	echo "Da update du lieu";
+});
+
+//Delete()
+Route::get('qb/delete',function(){
+	DB::table('users')->where('id','=',1)->delete();
+	echo "Da xoa";
+});
+
+//Truncate()
+Route::get('qb/truncate', function(){
+	DB::table('users')->truncate();
+	echo "Da xoa tat ca";
+});
