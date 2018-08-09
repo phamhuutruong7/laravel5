@@ -202,3 +202,44 @@ Route::get('qb/get', function(){
 		echo "<hr>";
 	}
 });
+
+//This is a query with condition
+//SELECT * FROM USERS WHERE id = 3
+Route::get('qb/where', function(){
+	$data = DB::table('users')->where('id','=',3)->get();
+	foreach($data as $row)
+	{
+		foreach($row as $key=>$value)
+		{
+			echo $key.":".$value."<br>";
+		}
+		echo "<hr>";
+	}
+
+});
+
+//SELECT Users.id, Users.name, Users.email FROM USERS WHERE id = 3
+Route::get('qb/select',function(){
+	$data = DB::table('users')->select(['id','name','email'])->where('id',3)->get();
+	foreach($data as $row)
+	{
+		foreach($row as $key=>$value)
+		{
+			echo $key.":".$value."<br>";
+		}
+		echo "<hr>";
+	}
+});
+
+//SELECT NAME AS HOTEN FROM USERS
+Route::get('qb/raw',function(){
+	$data = DB::table('users')->select(DB::raw('id,name as hoten,email'))->where('id',3)->get();
+	foreach($data as $row)
+	{
+		foreach($row as $key=>$value)
+		{
+			echo $key.":".$value."<br>";
+		}
+		echo "<hr>";
+	}
+});
