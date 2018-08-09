@@ -322,3 +322,15 @@ Route::get('model/sanpham/all', function(){
 	var_dump($sanpham);
 	
 });
+
+//Query with condition
+Route::get('model/sanpham/ten',function(){
+	$sanpham = App\SanPham::where('ten','laptop')->get()->toArray();
+	echo $sanpham[0]['ten'];
+});
+
+//Delete
+Route::get('model/sanpham/delete',function(){
+	App\Sanpham::destroy(4);
+	echo "Da xoa";
+});
