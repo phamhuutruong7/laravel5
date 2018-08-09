@@ -243,3 +243,15 @@ Route::get('qb/raw',function(){
 		echo "<hr>";
 	}
 });
+
+Route::get('qb/orderby',function(){
+	$data = DB::table('users')->select(DB::raw('id,name as hoten,email'))->where('id','>',1)->orderBy('id','desc')->get();
+	foreach($data as $row)
+	{
+		foreach($row as $key=>$value)
+		{
+			echo $key.":".$value."<br>";
+		}
+		echo "<hr>";
+	}
+});
