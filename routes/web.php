@@ -260,6 +260,8 @@ Route::get('qb/orderby',function(){
 //LIMIT 2,5
 Route::get('qb/limit',function(){
 	$data = DB::table('users')->select(DB::raw('id,name as hoten,email'))->where('id','>',1)->orderBy('id','desc')->skip(1)->take(5)->get();
+
+	echo $data->count();
 	foreach($data as $row)
 	{
 		foreach($row as $key=>$value)
