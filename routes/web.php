@@ -112,3 +112,14 @@ Route::get('blade',function(){
 });
 
 Route::get('BladeTemplate/{str}','MyController@blade');
+
+
+//Work with the Database
+Route::get('database', function(){
+	Schema::create('loaisanpham',function($table){
+		$table->increments('id');
+		$table->string('ten',200);
+
+	});
+	echo "Da thuc hien lenh Create table";
+});
