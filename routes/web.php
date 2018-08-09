@@ -126,7 +126,66 @@ Route::get('database', function(){
 		$table->increments('id');
 		$table->string('ten',200)->nullable();
 		$table->string('nhasanxuat')->default('Nha san xuat');
+
 	});
 
 	echo "Da thuc hien lenh Create table";
+});
+
+//Create relation between 2 tables
+Route::get('lienketbang',function(){
+	Schema::create('sanpham', function($table){
+		$table->increments('idSanPham');
+		$table->string('ten');
+		$table->float('giatien');
+		$table->integer('soluong')->default(0);
+		$table->integer('id_loaisanpham')->unsigned();
+		$table->foreign('id_loaisanpham')->references('id')->on('loaisanpham');
+
+
+	});
+	echo "Da tao lien ket giua 2 bang";
+});
+
+//Update table
+Route::get('suabang',function(){
+	Schema::table('theloai',function($table){
+		$table->dropColumn('nhasanxuat');
+	});
+	echo "Da sua bang";
+});
+
+//Add a column
+Route::get('themcot', function(){
+	Schema::table('theloai',function($table){
+		$table->string('email', 200);
+	});
+	echo "Da tao them cot email";
+});
+
+//Rename table
+Route::get('doiten', function(){
+	Schema::rename('theloai','nguoidung');
+	echo "Da doi ten";
+});
+
+//Delete table
+Route::get('xoabang',function(){
+	Schema::drop('nguoidung');
+	echo "Da xoa bang";
+});
+//If the table is not exist and you keep trying to delete the table, the bug will happen
+//Then better you should use dropIfExist
+Route::get('xoabang',function(){
+	Schema::dropIfExists('nguoidung');
+	echo "Da xoa bang.";
+});
+
+Route::get('taobang',function(){
+	Schema::create('nguoidung',function($table){
+		$table->increments('id');
+		$table->string('ten',200)->nullable();
+		$table->string('nsx')->default('Nha san xuat');
+	});
+	echo "Da tao bang";
 });
