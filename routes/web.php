@@ -306,3 +306,12 @@ Route::get('model/query', function(){
 	$user = App\User::find(4);
 	echo $user->name;
 });
+
+//Insert to test if Model Sanpham.php work
+Route::get('model/sanpham/save',function(){
+	$sanpham = new App\Sanpham();
+	$sanpham->ten = "Android";
+	$sanpham->soluong = 100;
+	$sanpham->save();
+	echo "Da thuc hien lenh save() len table SanPham";
+});
