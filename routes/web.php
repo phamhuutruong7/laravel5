@@ -289,3 +289,20 @@ Route::get('qb/truncate', function(){
 	DB::table('users')->truncate();
 	echo "Da xoa tat ca";
 });
+
+//Model
+Route::get('model/save',function(){
+	$user = new App\User();
+	$user->name = "Charlie";
+	$user->email= "Charlie@email.com";
+	$user->password = "secret";
+
+	$user->save();
+	echo "Da thuc hien save cho user";
+});
+
+//to call a model
+Route::get('model/query', function(){
+	$user = App\User::find(4);
+	echo $user->name;
+});
