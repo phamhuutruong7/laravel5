@@ -116,10 +116,17 @@ Route::get('BladeTemplate/{str}','MyController@blade');
 
 //Work with the Database
 Route::get('database', function(){
-	Schema::create('loaisanpham',function($table){
+	//Schema::create('loaisanpham',function($table){
+	//	$table->increments('id');
+	//	$table->string('ten',200);
+	//
+	//});
+	
+	Schema::create('theloai', function($table){
 		$table->increments('id');
-		$table->string('ten',200);
-
+		$table->string('ten',200)->nullable();
+		$table->string('nhasanxuat')->default('Nha san xuat');
 	});
+
 	echo "Da thuc hien lenh Create table";
 });
