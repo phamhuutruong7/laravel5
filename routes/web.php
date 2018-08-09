@@ -193,5 +193,12 @@ Route::get('taobang',function(){
 //Query Builder
 Route::get('qb/get', function(){
 	$data = DB::table('users')->get();
-	var_dump($data);
+	foreach($data as $row)
+	{
+		foreach($row as $key=>$value)
+		{
+			echo $key.":".$value."<br>";
+		}
+		echo "<hr>";
+	}
 });
