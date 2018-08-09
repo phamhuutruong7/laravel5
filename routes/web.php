@@ -308,10 +308,17 @@ Route::get('model/query', function(){
 });
 
 //Insert to test if Model Sanpham.php work
-Route::get('model/sanpham/save',function(){
+Route::get('model/sanpham/save/{ten}',function($ten){
 	$sanpham = new App\Sanpham();
-	$sanpham->ten = "Android";
+	$sanpham->ten = $ten;
 	$sanpham->soluong = 100;
 	$sanpham->save();
-	echo "Da thuc hien lenh save() len table SanPham";
+	echo "Da thuc hien lenh save() ".$ten." len table SanPham";
+});
+
+//Query from model
+Route::get('model/sanpham/all', function(){
+	$sanpham = App\SanPham::all()->toArray();
+	var_dump($sanpham);
+	
 });
