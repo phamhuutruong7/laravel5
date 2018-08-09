@@ -114,6 +114,13 @@ Route::get('blade',function(){
 Route::get('BladeTemplate/{str}','MyController@blade');
 
 
+Route::get('database1',function(){
+	Schema::create('loaisanpham', function($table){
+		$table->increments('id');
+		$table->string('ten',200);
+	});
+});
+
 //Work with the Database
 Route::get('database', function(){
 	//Schema::create('loaisanpham',function($table){
@@ -333,4 +340,21 @@ Route::get('model/sanpham/ten',function(){
 Route::get('model/sanpham/delete',function(){
 	App\Sanpham::destroy(4);
 	echo "Da xoa";
+});
+
+//Create the id_loaisanpham in sanpham to make the constraint
+Route::get('taocot', function(){
+	Schema::table('sanpham', function($table){
+		$table->integer('id_loaisanpham')->unsigned();
+	});
+});
+
+Route::get('lienket', function(){
+	$data = App\SanPham::find(3)->loaisanpham->toArray();
+	var_dump($data);
+});
+
+Route::get('lienketloaisanpham', function(){
+	$data = App\LoaiSanPham::find(1)->sanpham->toArray();
+	var_dump($data);
 });
