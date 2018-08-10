@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
-
+use App\User;
 class AuthController extends Controller
 {
     //This example is working with table USERS 
@@ -17,6 +17,15 @@ class AuthController extends Controller
     {
     	$username = $request['username'];
     	$password = $request['password'];
+
+    	$user = User::find(2);
+    	Auth::login($user);
+    	return view('thanhcong',['user'=>Auth::user()]);
+
+
+
+
+
     	if(Auth::attempt(['name'=>$username, 'password'=>$password]))
     	{	//This 'name' and 'password' here is from table Users
     		//If login succesful then attempt return true
