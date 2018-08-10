@@ -20,7 +20,9 @@ class AuthController extends Controller
     	if(Auth::attempt(['name'=>$username, 'password'=>$password]))
     	{	//This 'name' and 'password' here is from table Users
     		//If login succesful then attempt return true
-    		return view('thanhcong');
+    		return view('thanhcong',['user'=>Auth::user()]);
+    		//The second argument is to print out the data of the user.
+    		//After call it like this, you can call it in the thanhcong.blade.php
     	}
     	else
     	{
