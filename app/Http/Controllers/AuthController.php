@@ -18,13 +18,9 @@ class AuthController extends Controller
     	$username = $request['username'];
     	$password = $request['password'];
 
-    	$user = User::find(2);
-    	Auth::login($user);
-    	return view('thanhcong',['user'=>Auth::user()]);
-
-
-
-
+    	// $user = User::find(2);
+    	// Auth::login($user);
+    	// return view('thanhcong',['user'=>Auth::user()]);
 
     	if(Auth::attempt(['name'=>$username, 'password'=>$password]))
     	{	//This 'name' and 'password' here is from table Users
@@ -37,5 +33,11 @@ class AuthController extends Controller
     	{
     		return view('dangnhap',['error'=>'Dang nhap that bai']);
     	}
+    }
+
+    public function logout()
+    {
+    	Auth::logout();
+    	return view('dangnhap');
     }
 }

@@ -378,3 +378,5 @@ Route::get('dangnhap',function(){
 });
 
 Route::post('login','AuthController@login')->name('login');
+
+Route::get('logout','AuthController@logout');

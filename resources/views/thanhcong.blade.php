@@ -4,4 +4,6 @@
 	{{"Ten: ".$user->name}}
 	<br>
 	{{"Email: ".$user->email}}
+	<br>
+	<a href="{{url('logout')}}">Logout</a>
 @endif
