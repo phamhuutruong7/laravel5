@@ -358,3 +358,12 @@ Route::get('lienketloaisanpham', function(){
 	$data = App\LoaiSanPham::find(1)->sanpham->toArray();
 	var_dump($data);
 });
+
+//Middleware test
+Route::get('diem', function(){
+	echo "Ban da co diem";
+})->middleware('MyMiddle');
+
+Route::get('loi', function(){
+	echo "Ban chua co diem";
+})->name('loi');
