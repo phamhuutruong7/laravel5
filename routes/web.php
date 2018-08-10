@@ -361,11 +361,11 @@ Route::get('lienketloaisanpham', function(){
 
 //Middleware test
 Route::get('diem', function(){
-	echo "Ban da co diem";
+	echo "Ban da du diem";
 })->middleware('MyMiddle')->name('diem');
 
 Route::get('loi', function(){
-	echo "Ban chua co diem";
+	echo "Ban chua du diem";
 })->name('loi');
 
 Route::get('nhapdiem',function(){

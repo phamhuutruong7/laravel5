@@ -15,7 +15,7 @@ class MyMiddleWare
      */
     public function handle($request, Closure $next)
     {
-        if($request->has('diem'))
+        if($request->has('diem') && $request['diem'] >= 5)
             return $next($request);
         else
             return redirect()->route('loi');
