@@ -376,6 +376,13 @@ Route::get('nhapdiem',function(){
 Route::get('dangnhap',function(){
 	return view('dangnhap');
 });
+//There is a small thing here. If someone change the route 'dangnhap'
+//and return the view('thanhcong'), it still be successful
+//This route to test that and fix it
+//Just replace the name 'dangnhap' with 'thu'
+Route::get('thu',function(){
+	return view('thanhcong');
+});
 
 Route::post('login','AuthController@login')->name('login');
 
