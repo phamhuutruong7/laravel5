@@ -371,3 +371,10 @@ Route::get('loi', function(){
 Route::get('nhapdiem',function(){
 	return view('nhapdiem');
 })->name('nhapdiem');
+
+//Auth
+Route::get('dangnhap',function(){
+	return view('dangnhap');
+});
+
+Route::post('login','AuthController@login')->name('login');
