@@ -413,3 +413,5 @@ Route::group(['middleware'=>['web']],function(){
 		echo Session::get('mess');
 	});
 });
+
+Route::get('tin','TinController@index');
