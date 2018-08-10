@@ -387,3 +387,29 @@ Route::get('thu',function(){
 Route::post('login','AuthController@login')->name('login');
 
 Route::get('logout','AuthController@logout');
+
+//Session
+////If you want to use the session, you must let it in the middleware
+Route::group(['middleware'=>['web']],function(){
+	Route::get('Session',function(){
+		Session::put('KhoaHoc','Laravel');
+		Session::put('Laptrinh','Web');
+		//put('nameOfTheSession','valueOfTheSession');
+		echo "Da dat Session";
+		echo "<br>";
+		//Session::forget('KhoaHoc');
+		Session::flash('mess','Hello');
+		echo Session::get('mess');
+		//Session::flush();
+		//echo Session::get('KhoaHoc');
+		//get('KhoaHoc') to print out the value of the Session's name
+		if(Session::has('KhoaHoc'))
+			echo "Da ton tai session";
+		else
+			echo "Chua ton tai session";
+	});
+	//Flash will appear only in a few seconds.
+	Route::get('Session/flash', function(){
+		echo Session::get('mess');
+	});
+});
